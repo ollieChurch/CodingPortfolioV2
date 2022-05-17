@@ -58,12 +58,14 @@
                     <v-list-item
                         v-for="(link, index) in articleLinks"
                         :key="'article' + link.name + index"
-                        class="text-h4"
+                        class="articles-link text-h4"
+                        :to="link.linkTo"
+                        link
                     >
                         <v-list-item-icon>
                             <v-icon x-large>mdi-lightning-bolt-circle</v-icon>
                         </v-list-item-icon>
-                        {{ link.name }}
+                        <v-list-item-content>{{ link.name }}</v-list-item-content>
                     </v-list-item>
                 </v-list>
                 <v-btn x-large color="accent" class="articles-btn primary--text align-self-center mt-6 mb-10">Read More</v-btn>
@@ -267,5 +269,9 @@
     .article-list {
         width: fit-content;
         margin: 0 auto;
+    }
+
+    .articles-link:hover {
+        color: var(--v-secondary-base) !important;
     }
 </style>
