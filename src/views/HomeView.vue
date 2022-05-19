@@ -1,7 +1,6 @@
 <template>
     <!-- 
     app bar
-        nav list in drawer
     greeting
     current role
     projects
@@ -80,9 +79,29 @@
                 :key="'contactBtn' + button.label + index"
                 class="flex-column"
             >
-                <v-btn x-large rounded color="secondary">
+                <v-btn 
+                    v-if="button.download"
+                    class="contactBtn"
+                    x-large 
+                    rounded 
+                    color="secondary"
+                    download
+                    :href="button.linkTo" 
+                >
                     <v-icon x-large>mdi-{{ button.icon }}</v-icon>
                 </v-btn>
+
+                <v-btn 
+                    v-else
+                    class="contactBtn"
+                    x-large 
+                    rounded 
+                    color="secondary" 
+                    @click="handleClick(button.linkTo)"
+                >
+                    <v-icon x-large>mdi-{{ button.icon }}</v-icon>
+                </v-btn>
+
                 <p class="text-center mt-2 secondary--text">
                     {{ button.label }}
                 </p>
@@ -115,7 +134,7 @@
                         auto-grow
                         label="Message"
                     ></v-textarea>
-                    <v-btn block large color="accent">Send</v-btn>
+                    <v-btn class="contactBtn" block large color="accent">Send</v-btn>
                 </v-form>
             </v-container>
         </div>
@@ -154,10 +173,13 @@
                     text: 'Some information about my current role at Salary Finance and what that means. Tech stack: C#, MySQL, Vue, Typescript.',
                     buttons: [
                         {
-                            name: 'Visit LinkedIn'
+                            name: 'Visit LinkedIn',
+                            linkTo: 'https://www.linkedin.com/in/olliechurch/'
                         },
                         {
-                            name: 'Download CV'
+                            name: 'Download CV',
+                            download: true,
+                            linkTo: 'ollieChurchCV.pdf'
                         }
                     ]
                 },
@@ -168,10 +190,12 @@
                         text: 'Online puzzle game series following the cases of fictional 1930s P.I. Larry Maxwell. Over 500 users and generated ~£5000 in profit. Built using React.',
                         buttons: [
                             {
-                                name: 'See The Code'
+                                name: 'See The Code',
+                                linkTo: 'https://github.com/ollieChurch/MaxwellMysteriesDemo'
                             },
                             {
-                                name: 'Take It For A Spin'
+                                name: 'Take It For A Spin',
+                                linkTo: 'https://mysteries-demo.co.uk'
                             }
                         ]
                     },
@@ -181,10 +205,12 @@
                         text: 'Online puzzle game series following the cases of fictional 1930s P.I. Larry Maxwell. Over 500 users and generated ~£5000 in profit. Built using React.',
                         buttons: [
                             {
-                                name: 'See The Code'
+                                name: 'See The Code',
+                                linkTo: 'https://github.com/ollieChurch/ActingPortfolioIP'
                             },
                             {
-                                name: 'Take It For A Spin'
+                                name: 'Take It For A Spin',
+                                linkTo: 'https://isobellepippin.co.uk'
                             }
                         ]
                     },
@@ -194,7 +220,8 @@
                         text: 'Online puzzle game series following the cases of fictional 1930s P.I. Larry Maxwell. Over 500 users and generated ~£5000 in profit. Built using React.',
                         buttons: [
                             {
-                                name: 'See The Code'
+                                name: 'See The Code',
+                                linkTo: 'https://github.com/ollieChurch/floridaTravel'
                             },
                             {
                                 name: 'Take It For A Spin'
@@ -224,33 +251,34 @@
                     {
                         icon: 'github',
                         label: 'GitHub',
-                        onClick: function () {
-                            console.log(this.label)
-                        }
+                        linkTo: 'https://github.com/ollieChurch'
                     },
                     {
                         icon: 'linkedin',
                         label: 'LinkedIn',
-                        onClick: function () {
-                            console.log(this.label)
-                        }
+                        linkTo: 'https://linkedin.com/in/olliechurch/'
                     },
                     {
                         icon: 'clipboard-arrow-down-outline',
                         label: 'CV',
-                        onClick: function () {
-                            console.log(this.label)
-                        }
+                        download: true,
+                        linkTo: 'ollieChurchCV.pdf'
                     }
                 ]
+            }
+        },
+
+        methods: {
+            handleClick: function(link) {
+                window.open(link)
             }
         }
     }
 </script>
 
 <style scoped>
-    .contact-form button:hover,
-    .contact-form button:focus {
+    .contactBtn:hover,
+    .contactBtn:focus {
         background-color: var(--v-primary-base) !important;
         color: var(--v-accent-base) !important;
     }
