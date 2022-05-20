@@ -17,17 +17,18 @@
                     <p class="text-h4 primary--text align-self-center">Where to?</p>
                 </v-toolbar>
                 <v-list>
-                    <v-list-item
-                        v-for="(item, index) in navItems"
-                        :key="item.name + index"
-                        :to="item.link"
-                        link
-                    >
-                        <v-list-item-icon left>
-                            <v-icon class="primary--text" large>mdi-{{ item.icon }}</v-icon>
-                        </v-list-item-icon>
-                        <v-list-item-content class="text-h6 primary--text">{{ item.name }}</v-list-item-content>
-                    </v-list-item>
+                        <v-list-item
+                            v-for="(item, index) in navItems"
+                            :key="item.name + index"
+                            class="v-list-item--active"
+                            link
+                            @click="handleClick(item.internalType, item.linkTo)"
+                        >
+                            <v-list-item-icon left>
+                                <v-icon class="primary--text" large>mdi-{{ item.icon }}</v-icon>
+                            </v-list-item-icon>
+                            <v-list-item-content class="text-h6 primary--text">{{ item.name }}</v-list-item-content>
+                        </v-list-item>
                 </v-list>
             </v-navigation-drawer>
         </div>
@@ -41,27 +42,29 @@
                 navItems: [
                     {
                         name: "Articles",
-                        link: "#",
+                        linkTo: "#",
                         icon: "typewriter"
                     },
                     {
                         name: "GitHub",
-                        link: "#",
+                        linkTo: "https://github.com/ollieChurch",
                         icon: "github"
                     },
                     {
                         name: "LinkedIn",
-                        link: "#",
+                        linkTo: "https://linkedin.com/in/olliechurch/",
                         icon: "linkedin"
                     },
                     {
                         name: "CV",
-                        link: "#",
+                        linkTo: "ollieChurchCV.pdf",
+                        internalType: "download",
                         icon: "clipboard-arrow-down-outline"
                     },
                     {
                         name: "Contact",
-                        link: "#",
+                        linkTo: "",
+                        internalType: "scroll",
                         icon: "email-fast"
                     },
                 ]
@@ -71,6 +74,17 @@
         methods: {
             toggleDrawer: function () {
                 this.drawer = !this.drawer
+            },
+
+            handleClick: function(type, link) {
+                this.toggleDrawer()
+                type === 'scroll' ? this.goTo('contact') : window.open(link, '_blank, norefferer')
+            },
+
+            goTo: function(refName) {
+                const element = document.getElementById(refName)
+                const top = element.offsetTop
+                window.scrollTo(0, top)
             }
         }
     }
@@ -89,5 +103,5 @@
 
     .logo {
         margin-bottom: -8px;
-    }    
+    } 
 </style>

@@ -57,7 +57,7 @@
                     <v-list-item
                         v-for="(link, index) in articleLinks"
                         :key="'article' + link.name + index"
-                        class="articles-link text-h4"
+                        class="articles-link text-h4 accent--text"
                         :to="link.linkTo"
                         link
                     >
@@ -71,74 +71,62 @@
             </v-container>
             <v-img contain max-width="100%" :src="rocketImg" />
         </div>
-
-        <section-head background="none">Contact Me</section-head>
-        <v-container class="d-flex justify-space-around">
-            <div
-                v-for="(button, index) in contactButtons"
-                :key="'contactBtn' + button.label + index"
-                class="flex-column"
-            >
-                <v-btn 
-                    v-if="button.download"
-                    class="contactBtn"
-                    x-large 
-                    rounded 
-                    color="secondary"
-                    download
-                    :href="button.linkTo" 
+        
+        <section id="contact">
+            <section-head background="none">Contact Me</section-head>
+            <v-container class="d-flex justify-space-around">
+                <div
+                    v-for="(button, index) in contactButtons"
+                    :key="'contactBtn' + button.label + index"
+                    class="flex-column"
                 >
-                    <v-icon x-large>mdi-{{ button.icon }}</v-icon>
-                </v-btn>
+                    <v-btn 
+                        class="contactBtn"
+                        x-large 
+                        rounded 
+                        color="secondary" 
+                        @click="handleClick(button.linkTo)"
+                    >
+                        <v-icon x-large>mdi-{{ button.icon }}</v-icon>
+                    </v-btn>
 
-                <v-btn 
-                    v-else
-                    class="contactBtn"
-                    x-large 
-                    rounded 
-                    color="secondary" 
-                    @click="handleClick(button.linkTo)"
-                >
-                    <v-icon x-large>mdi-{{ button.icon }}</v-icon>
-                </v-btn>
-
-                <p class="text-center mt-2 secondary--text">
-                    {{ button.label }}
-                </p>
-            </div>
-        </v-container>
-
-        <div class="bg-color-secondary py-4">
-            <v-container>
-                <v-form class="contact-form">
-                    <v-text-field
-                        required
-                        filled
-                        background-color="white"
-                        color="accent"
-                        label="Name"
-                    ></v-text-field>
-                    <v-text-field
-                        required
-                        filled
-                        background-color="white"
-                        color="accent"
-                        label="Email"
-                        type="email"
-                    ></v-text-field>
-                    <v-textarea
-                        required
-                        filled
-                        background-color="white"
-                        color="accent"
-                        auto-grow
-                        label="Message"
-                    ></v-textarea>
-                    <v-btn class="contactBtn" block large color="accent">Send</v-btn>
-                </v-form>
+                    <p class="text-center mt-2 secondary--text">
+                        {{ button.label }}
+                    </p>
+                </div>
             </v-container>
-        </div>
 
+            <div class="bg-color-secondary py-4">
+                <v-container>
+                    <v-form class="contact-form">
+                        <v-text-field
+                            required
+                            filled
+                            background-color="white"
+                            color="accent"
+                            label="Name"
+                        ></v-text-field>
+                        <v-text-field
+                            required
+                            filled
+                            background-color="white"
+                            color="accent"
+                            label="Email"
+                            type="email"
+                        ></v-text-field>
+                        <v-textarea
+                            required
+                            filled
+                            background-color="white"
+                            color="accent"
+                            auto-grow
+                            label="Message"
+                        ></v-textarea>
+                        <v-btn class="contactBtn" block large color="accent">Send</v-btn>
+                    </v-form>
+                </v-container>
+            </div>
+        </section>
         <site-footer />
     </div>
 </template>
@@ -178,7 +166,6 @@
                         },
                         {
                             name: 'Download CV',
-                            download: true,
                             linkTo: 'ollieChurchCV.pdf'
                         }
                     ]
@@ -261,7 +248,6 @@
                     {
                         icon: 'clipboard-arrow-down-outline',
                         label: 'CV',
-                        download: true,
                         linkTo: 'ollieChurchCV.pdf'
                     }
                 ]
@@ -270,8 +256,8 @@
 
         methods: {
             handleClick: function(link) {
-                window.open(link)
-            }
+                window.open(link, '_blank, norefferer')
+            },
         }
     }
 </script>
