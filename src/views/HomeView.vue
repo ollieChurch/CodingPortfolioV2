@@ -1,7 +1,6 @@
 <template>
     <!-- 
     app bar
-        nav list in drawer
     greeting
     current role
     projects
@@ -58,7 +57,7 @@
                     <v-list-item
                         v-for="(link, index) in articleLinks"
                         :key="'article' + link.name + index"
-                        class="articles-link text-h4"
+                        class="articles-link text-h4 accent--text"
                         :to="link.linkTo"
                         link
                     >
@@ -72,54 +71,62 @@
             </v-container>
             <v-img contain max-width="100%" :src="rocketImg" />
         </div>
+        
+        <section id="contact">
+            <section-head background="none">Contact Me</section-head>
+            <v-container class="d-flex justify-space-around">
+                <div
+                    v-for="(button, index) in contactButtons"
+                    :key="'contactBtn' + button.label + index"
+                    class="flex-column"
+                >
+                    <v-btn 
+                        class="contactBtn"
+                        x-large 
+                        rounded 
+                        color="secondary" 
+                        @click="handleClick(button.linkTo)"
+                    >
+                        <v-icon x-large>mdi-{{ button.icon }}</v-icon>
+                    </v-btn>
 
-        <section-head background="none">Contact Me</section-head>
-        <v-container class="d-flex justify-space-around">
-            <div
-                v-for="(button, index) in contactButtons"
-                :key="'contactBtn' + button.label + index"
-                class="flex-column"
-            >
-                <v-btn x-large rounded color="secondary">
-                    <v-icon x-large>mdi-{{ button.icon }}</v-icon>
-                </v-btn>
-                <p class="text-center mt-2 secondary--text">
-                    {{ button.label }}
-                </p>
-            </div>
-        </v-container>
-
-        <div class="bg-color-secondary py-4">
-            <v-container>
-                <v-form class="contact-form">
-                    <v-text-field
-                        required
-                        filled
-                        background-color="white"
-                        color="accent"
-                        label="Name"
-                    ></v-text-field>
-                    <v-text-field
-                        required
-                        filled
-                        background-color="white"
-                        color="accent"
-                        label="Email"
-                        type="email"
-                    ></v-text-field>
-                    <v-textarea
-                        required
-                        filled
-                        background-color="white"
-                        color="accent"
-                        auto-grow
-                        label="Message"
-                    ></v-textarea>
-                    <v-btn block large color="accent">Send</v-btn>
-                </v-form>
+                    <p class="text-center mt-2 secondary--text">
+                        {{ button.label }}
+                    </p>
+                </div>
             </v-container>
-        </div>
 
+            <div class="bg-color-secondary py-4">
+                <v-container>
+                    <v-form class="contact-form">
+                        <v-text-field
+                            required
+                            filled
+                            background-color="white"
+                            color="accent"
+                            label="Name"
+                        ></v-text-field>
+                        <v-text-field
+                            required
+                            filled
+                            background-color="white"
+                            color="accent"
+                            label="Email"
+                            type="email"
+                        ></v-text-field>
+                        <v-textarea
+                            required
+                            filled
+                            background-color="white"
+                            color="accent"
+                            auto-grow
+                            label="Message"
+                        ></v-textarea>
+                        <v-btn class="contactBtn" block large color="accent">Send</v-btn>
+                    </v-form>
+                </v-container>
+            </div>
+        </section>
         <site-footer />
     </div>
 </template>
@@ -154,10 +161,12 @@
                     text: 'Some information about my current role at Salary Finance and what that means. Tech stack: C#, MySQL, Vue, Typescript.',
                     buttons: [
                         {
-                            name: 'Visit LinkedIn'
+                            name: 'Visit LinkedIn',
+                            linkTo: 'https://www.linkedin.com/in/olliechurch/'
                         },
                         {
-                            name: 'Download CV'
+                            name: 'Download CV',
+                            linkTo: 'ollieChurchCV.pdf'
                         }
                     ]
                 },
@@ -168,10 +177,12 @@
                         text: 'Online puzzle game series following the cases of fictional 1930s P.I. Larry Maxwell. Over 500 users and generated ~£5000 in profit. Built using React.',
                         buttons: [
                             {
-                                name: 'See The Code'
+                                name: 'See The Code',
+                                linkTo: 'https://github.com/ollieChurch/MaxwellMysteriesDemo'
                             },
                             {
-                                name: 'Take It For A Spin'
+                                name: 'Take It For A Spin',
+                                linkTo: 'https://mysteries-demo.co.uk'
                             }
                         ]
                     },
@@ -181,10 +192,12 @@
                         text: 'Online puzzle game series following the cases of fictional 1930s P.I. Larry Maxwell. Over 500 users and generated ~£5000 in profit. Built using React.',
                         buttons: [
                             {
-                                name: 'See The Code'
+                                name: 'See The Code',
+                                linkTo: 'https://github.com/ollieChurch/ActingPortfolioIP'
                             },
                             {
-                                name: 'Take It For A Spin'
+                                name: 'Take It For A Spin',
+                                linkTo: 'https://isobellepippin.co.uk'
                             }
                         ]
                     },
@@ -194,7 +207,8 @@
                         text: 'Online puzzle game series following the cases of fictional 1930s P.I. Larry Maxwell. Over 500 users and generated ~£5000 in profit. Built using React.',
                         buttons: [
                             {
-                                name: 'See The Code'
+                                name: 'See The Code',
+                                linkTo: 'https://github.com/ollieChurch/floridaTravel'
                             },
                             {
                                 name: 'Take It For A Spin'
@@ -224,33 +238,33 @@
                     {
                         icon: 'github',
                         label: 'GitHub',
-                        onClick: function () {
-                            console.log(this.label)
-                        }
+                        linkTo: 'https://github.com/ollieChurch'
                     },
                     {
                         icon: 'linkedin',
                         label: 'LinkedIn',
-                        onClick: function () {
-                            console.log(this.label)
-                        }
+                        linkTo: 'https://linkedin.com/in/olliechurch/'
                     },
                     {
                         icon: 'clipboard-arrow-down-outline',
                         label: 'CV',
-                        onClick: function () {
-                            console.log(this.label)
-                        }
+                        linkTo: 'ollieChurchCV.pdf'
                     }
                 ]
             }
+        },
+
+        methods: {
+            handleClick: function(link) {
+                window.open(link, '_blank, norefferer')
+            },
         }
     }
 </script>
 
 <style scoped>
-    .contact-form button:hover,
-    .contact-form button:focus {
+    .contactBtn:hover,
+    .contactBtn:focus {
         background-color: var(--v-primary-base) !important;
         color: var(--v-accent-base) !important;
     }

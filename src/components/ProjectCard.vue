@@ -4,17 +4,19 @@
         <v-card-subtitle class="text-h5">{{ cardSubtitle }}</v-card-subtitle>
         <v-img :aspect-ratio="2 / 1" max-width="100%" :src="cardImg" />
         <v-card-text class="text-body-1">{{ cardText }}</v-card-text>
-        <v-card-actions class="flex-column mt-2">
+        <v-card-actions class="flex-column mt-2">  
             <v-btn
                 v-for="(button, index) in buttons"
                 :key="cardTitle + '-button-' + index"
                 large
                 block
                 color="accent"
-                class="mb-2 mx-0 primary--text font-weight-bold"
+                class="cardBtn mb-2 mx-0 primary--text font-weight-bold"
                 elevation="4"
+                @click="handleClick(button.linkTo)"
+                :disabled="button.linkTo ? false : true"
             >
-                {{ button.name }}
+                {{ button.linkTo ? button.name : "Oops! Check back later" }}
             </v-btn>
         </v-card-actions>
     </v-card>
@@ -35,13 +37,19 @@
             },
             cardText: String,
             buttons: Array
+        },
+
+        methods: {
+             handleClick: function(link) {
+                window.open(link, '_blank, norefferer')
+            }
         }
     }
 </script>
 
 <style scoped>
-    .v-card button:hover,
-    .v-card button:focus {
+    .cardBtn:hover,
+    .cardBtn:focus {
         background-color: var(--v-secondary-base) !important;
     }
 </style>

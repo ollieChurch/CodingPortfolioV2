@@ -27,4 +27,8 @@
     .bg-color-secondary { background-color: var(--v-secondary-base); }
     .bg-color-accent { background-color: var(--v-accent-base); }
     .bg-color-none { background-color: unset; }
+
+    .theme--light.v-list-item--active::before {
+        opacity: 0;
+    }
 </style>
