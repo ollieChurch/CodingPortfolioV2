@@ -31,4 +31,10 @@
     .theme--light.v-list-item--active::before {
         opacity: 0;
     }
+
+    .v-btn:not(.v-btn--round).v-size--x-large {
+        height: min-content;
+        padding: 0.5em;
+        font-size: 2rem;
+    }
 </style>
