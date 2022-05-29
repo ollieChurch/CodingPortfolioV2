@@ -24,9 +24,16 @@
         </v-container>
 
         <div class="bg-color-secondary py-4">
-            <v-container>
-                <v-form class="contact-form">
+            <v-container v-if="formSubmitted">
+                <p class="text-h5 white--text text-center">Thanks for sending a message. I will get back to you soon!</p>
+            </v-container>
+
+            <v-container v-else>
+                <p v-if="formError" class="text-body white--text">** {{ formError }} **</p>
+                <v-form name="contact-form" method="post" data-netlify="true" data-netlify-honeypot="bot-field" @submit.prevent="submitForm()">
+                    <input type="hidden" name="form-name" value="contact-form" />
                     <v-text-field
+                        name="name"
                         required
                         filled
                         background-color="white"
@@ -35,6 +42,7 @@
                         v-model="contactForm.name"
                     ></v-text-field>
                     <v-text-field
+                        name="email"
                         required
                         filled
                         background-color="white"
@@ -44,6 +52,7 @@
                         v-model="contactForm.email"
                     ></v-text-field>
                     <v-textarea
+                        name="message"
                         required
                         filled
                         background-color="white"
@@ -52,7 +61,7 @@
                         label="Message"
                         v-model="contactForm.message"
                     ></v-textarea>
-                    <v-btn class="contactBtn" block large color="accent" @click="submitForm()">
+                    <v-btn type="submit" class="contactBtn" block large color="accent">
                         Send
                     </v-btn>
                 </v-form>
@@ -71,10 +80,13 @@
 
         data: function() {
             return {
+                formError: '',
+                formSubmitted: false,
+
                 contactForm: {
-                    name: "",
-                    email: "",
-                    message: ""
+                    name: '',
+                    email: '',
+                    message: ''
                 },
 
                 contactButtons: [
@@ -102,8 +114,40 @@
                 window.open(link, '_blank, norefferer')
             },
 
+            encode: function(data) {
+                return Object.keys(data)
+                    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+                    .join("&");
+            },
+
             submitForm: function () {
-                console.log(this.contactForm)
+                if (!this.contactForm.name) {
+                    this.formError = 'please enter a valid name'
+                    return
+                } else if (!this.contactForm.email || !this.contactForm.email.includes('@')) {
+                    this.formError = 'please enter a valid email address'
+                    return
+                } else if (!this.contactForm.message) {
+                    this.formError = 'please enter a valid message'
+                    return
+                }
+
+                this.formError = ''
+                
+
+                fetch('/', {
+                    method: 'POST',
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: this.encode({'form-name': 'contact-form', ...this.contactForm})
+                })
+                    .then(() => {
+                        console.log('Form successfully submitted')
+                        this.formSubmitted = true
+                    })
+                    .catch((error) => {
+                        alert(error)
+                        this.formError = 'Oops! Something went wrong. Please try again.'
+                    })
             }
         }
     }
