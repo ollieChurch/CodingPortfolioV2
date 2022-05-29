@@ -32,6 +32,7 @@
                         background-color="white"
                         color="accent"
                         label="Name"
+                        v-model="contactForm.name"
                     ></v-text-field>
                     <v-text-field
                         required
@@ -40,6 +41,7 @@
                         color="accent"
                         label="Email"
                         type="email"
+                        v-model="contactForm.email"
                     ></v-text-field>
                     <v-textarea
                         required
@@ -48,10 +50,11 @@
                         color="accent"
                         auto-grow
                         label="Message"
+                        v-model="contactForm.message"
                     ></v-textarea>
-                    <v-btn class="contactBtn" block large color="accent"
-                        >Send</v-btn
-                    >
+                    <v-btn class="contactBtn" block large color="accent" @click="submitForm()">
+                        Send
+                    </v-btn>
                 </v-form>
             </v-container>
         </div>
@@ -68,6 +71,12 @@
 
         data: function() {
             return {
+                contactForm: {
+                    name: "",
+                    email: "",
+                    message: ""
+                },
+
                 contactButtons: [
                     {
                         icon: 'github',
@@ -91,6 +100,10 @@
         methods: {
             handleClick: function (link) {
                 window.open(link, '_blank, norefferer')
+            },
+
+            submitForm: function () {
+                console.log(this.contactForm)
             }
         }
     }

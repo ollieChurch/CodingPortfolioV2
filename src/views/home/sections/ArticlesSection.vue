@@ -5,17 +5,17 @@
             <v-container class="d-flex flex-column">
                 <v-list color="primary" class="article-list">
                     <v-list-item
-                        v-for="(link, index) in articleLinks"
-                        :key="'article' + link.name + index"
+                        v-for="(article, index) in $store.state.articles.featured"
+                        :key="'article' + article.name + index"
                         class="articles-link text-h4 accent--text"
-                        :to="link.linkTo"
+                        :to="article.linkTo"
                         link
                     >
                         <v-list-item-icon>
                             <v-icon x-large>mdi-lightning-bolt-circle</v-icon>
                         </v-list-item-icon>
                         <v-list-item-content>
-                            {{ link.name }}
+                            {{ article.name }}
                         </v-list-item-content>
                     </v-list-item>
                 </v-list>
@@ -44,25 +44,7 @@
 
         data: function () {
             return {
-                rocketImg: rocketImg,
-                articleLinks: [
-                    {
-                        name: 'From Actor to Software Developer',
-                        linkTo: '#'
-                    },
-                    {
-                        name: 'Why I Love CSS Grid',
-                        linkTo: '#'
-                    },
-                    {
-                        name: 'Transferable Skills',
-                        linkTo: '#'
-                    },
-                    {
-                        name: 'Build Tic Tac Toe',
-                        linkTo: '#'
-                    }
-                ]
+                rocketImg: rocketImg
             }
         },
 
