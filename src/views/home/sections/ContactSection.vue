@@ -124,7 +124,11 @@
                 if (!this.contactForm.name) {
                     this.formError = 'please enter a valid name'
                     return
-                } else if (!this.contactForm.email || !this.contactForm.email.includes('@')) {
+                } else if (
+                    !this.contactForm.email || 
+                    !this.contactForm.email.includes('@') || 
+                    this.contactForm.email.includes(' ')
+                ) {
                     this.formError = 'please enter a valid email address'
                     return
                 } else if (!this.contactForm.message) {
