@@ -37,4 +37,8 @@
         padding: 0.5em;
         font-size: 2rem;
     }
+
+    .v-card__text, .v-card__title {
+        word-break: normal !important;  
+    }
 </style>
