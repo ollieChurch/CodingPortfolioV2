@@ -42,7 +42,7 @@
                 navItems: [
                     {
                         name: "Articles",
-                        linkTo: "#",
+                        linkTo: this.$store.state.articles.homeLink,
                         icon: "typewriter"
                     },
                     {

@@ -8,7 +8,7 @@
                         v-for="(article, index) in $store.state.articles.featured"
                         :key="'article' + article.name + index"
                         class="articles-link text-h4 accent--text"
-                        :to="article.linkTo"
+                        @click="handleClick(article.linkTo)"
                         link
                     >
                         <v-list-item-icon>
@@ -23,7 +23,7 @@
                     x-large
                     color="accent"
                     class="articles-btn primary--text align-self-center mt-6 mb-10"
-                    @click="handleClick('#')"
+                    @click="handleClick($store.state.articles.homeLink)"
                 >
                     Read More
                 </v-btn>
