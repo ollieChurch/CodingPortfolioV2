@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="bg-color-primary pb-10">
+        <div class="bg-color-primary">
             <v-container>
                 <div class="mt-9 text-center">
                     <h1 class="text-h1 mb-n2">Hi I'm Ollie</h1>
@@ -13,7 +13,7 @@
                     :src="greetingImg"
                 />
             </v-container>
-            <v-container class="d-flex justify-center flex-wrap skills-container">
+            <v-container class="d-flex justify-center flex-wrap skills-container mb-10">
                 <v-img 
                     v-for="(skill, index) in skills"
                     :key="'skillLogo' + index"
@@ -25,12 +25,24 @@
                     :src="skill.src"
                 />
             </v-container>
+            <section-border />
         </div>
 
         <section-head>Current Role</section-head>
-        <cards-collection :cards="jobs" />
+        <section-border position="btm" />
+        <cards-collection :cards="jobs" class="hidden-md-and-up"/>
+        <horizontal-card
+            class="mx-2 hidden-sm-and-down"
+            :cardTitle="jobs[0].title"
+            :cardSubtitle="jobs[0].subtitle"
+            :cardImg="jobs[0].img"
+            :cardText="jobs[0].text"
+            :buttons="jobs[0].buttons"
+        />
 
+        <section-border />
         <section-head>Personal Projects</section-head>
+        <section-border position="btm" />
         <cards-collection :cards="projects" />
 
         <articles-section />
@@ -41,8 +53,10 @@
 
 <script>
     import SectionHead from '../../components/SectionHead.vue'
+    import SectionBorder from '@/components/SectionBorder.vue'
     import SiteFooter from '../../components/SiteFooter.vue'
     import CardsCollection from '@/components/CardsCollection.vue'
+    import HorizontalCard from '@/components/HorizontalCard.vue'
 
     import ArticlesSection from './sections/ArticlesSection.vue'
     import ContactSection from './sections/ContactSection.vue'
@@ -66,7 +80,9 @@
             SiteFooter,
             ArticlesSection,
             CardsCollection,
-            ContactSection
+            ContactSection,
+            HorizontalCard,
+            SectionBorder
         },
 
         data: function () {

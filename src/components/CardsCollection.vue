@@ -6,6 +6,7 @@
                 :key="'card' + card.title + index"
                 class="mx-2"
                 :cardTitle="card.title"
+                :cardSubtitle="card.subtitle"
                 :cardImg="card.img"
                 :cardText="card.text"
                 :buttons="card.buttons"

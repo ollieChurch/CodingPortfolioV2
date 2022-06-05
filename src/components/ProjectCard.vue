@@ -59,7 +59,7 @@
         font-size: 1.25rem;
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 960px) {
         .card {
             max-width: 400px;
         }

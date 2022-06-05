@@ -1,8 +1,10 @@
 <template>
     <div>
+        <section-border />
         <section-head>Articles</section-head>
-        <div class="pt-6 bg-color-primary">
-            <v-container class="d-flex flex-column">
+        <div class="bg-color-primary articles-wrapper">
+            <section-border position="btm" />
+            <v-container class="d-flex flex-column align-self-left mt-3">
                 <v-list color="primary" class="article-list">
                     <v-list-item
                         v-for="(article, index) in $store.state.articles.featured"
@@ -22,24 +24,26 @@
                 <v-btn
                     x-large
                     color="accent"
-                    class="articles-btn primary--text align-self-center mt-6 mb-10"
+                    class="articles-btn primary--text mt-6 mb-10"
                     @click="handleClick($store.state.articles.homeLink)"
                 >
                     Read More
                 </v-btn>
             </v-container>
-            <v-img contain max-width="100%" :src="rocketImg" />
+            <v-img contain max-width="100%" :src="rocketImg" class="rocket" />
         </div>
     </div>
 </template>
 
 <script>
     import SectionHead from '@/components/SectionHead.vue'
+    import SectionBorder from '@/components/SectionBorder.vue'
     import rocketImg from '../../../assets/images/png/rocket.png'
 
     export default {
         components: {
-            SectionHead
+            SectionHead,
+            SectionBorder
         },
 
         data: function () {
@@ -62,6 +66,10 @@
         background-color: var(--v-secondary-base) !important;
     }
 
+    .articles-btn {
+        align-self: center;
+    }
+
     .article-list {
         width: fit-content;
         margin: 0 auto;
@@ -69,5 +77,29 @@
 
     .articles-link:hover {
         color: var(--v-secondary-base) !important;
+    }
+
+    .articles-wrapper {
+        position: relative;
+    }
+
+    @media (min-width: 960px) {
+        .rocket {
+            position: absolute;
+            right: -20%;
+            bottom: 0;
+            width: 90%;
+            max-height: 92%;
+        }
+
+        .article-list {
+            margin: 0;
+        }
+
+        .articles-btn {
+            width: fit-content;
+            align-self: flex-start;
+            margin-left: 16px;
+        }
     }
 </style>

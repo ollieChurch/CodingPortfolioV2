@@ -1,7 +1,7 @@
 <template>
     <section id="contact">
         <section-head background="none">Contact Me</section-head>
-        <v-container class="d-flex justify-space-around">
+        <v-container class="d-flex btn-container justify-space-around">
             <div
                 v-for="(button, index) in contactButtons"
                 :key="'contactBtn' + button.label + index"
@@ -30,7 +30,7 @@
 
             <v-container v-else>
                 <p v-if="formError" class="text-body white--text">** {{ formError }} **</p>
-                <v-form name="contact-form" method="post" data-netlify="true" data-netlify-honeypot="bot-field" @submit.prevent="submitForm()">
+                <v-form name="contact-form" class="contact-form" method="post" data-netlify="true" data-netlify-honeypot="bot-field" @submit.prevent="submitForm()">
                     <input type="hidden" name="form-name" value="contact-form" />
                     <v-text-field
                         name="name"
@@ -162,5 +162,11 @@
     .contactBtn:focus {
         background-color: var(--v-primary-base) !important;
         color: var(--v-accent-base) !important;
+    }
+
+    .contact-form,
+    .btn-container {
+        max-width: 700px;
+        margin: 0 auto;
     }
 </style>
