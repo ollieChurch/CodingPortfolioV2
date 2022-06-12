@@ -101,6 +101,7 @@
             width: fit-content;
             align-self: flex-start;
             margin-left: 16px;
+            z-index: 5;
         }
     }
 </style>
