@@ -9,7 +9,7 @@
                     <v-list-item
                         v-for="(article, index) in $store.state.articles.featured"
                         :key="'article' + article.name + index"
-                        class="articles-link text-h4 accent--text"
+                        class="articles-link text-h5 accent--text"
                         @click="handleClick(article.linkTo)"
                         link
                     >
@@ -94,6 +94,7 @@
 
         .article-list {
             margin: 0;
+            z-index: 5;
         }
 
         .articles-btn {

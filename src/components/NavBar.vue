@@ -95,6 +95,7 @@
     .v-app-bar {
         height: min-content !important; 
         padding: .5em;
+        z-index: 100 !important;
     }
 
     .v-navigation-drawer--absolute {
