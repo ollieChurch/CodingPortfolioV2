@@ -100,11 +100,11 @@
                         label: 'LinkedIn',
                         linkTo: 'https://linkedin.com/in/olliechurch/'
                     },
-                    {
-                        icon: 'clipboard-arrow-down-outline',
-                        label: 'CV',
-                        linkTo: 'ollieChurchCV.pdf'
-                    }
+                    // {
+                    //     icon: 'clipboard-arrow-down-outline',
+                    //     label: 'CV',
+                    //     linkTo: 'ollieChurchCV.pdf'
+                    // }
                 ]
             }
         },
