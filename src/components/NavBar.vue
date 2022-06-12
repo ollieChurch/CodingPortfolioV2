@@ -95,11 +95,12 @@
     .v-app-bar {
         height: min-content !important; 
         padding: .5em;
-        z-index: 100 !important;
+        z-index: 50 !important;
     }
 
     .v-navigation-drawer--absolute {
         position: fixed;
+        z-index: 100 !important;
     }
 
     .logo {
