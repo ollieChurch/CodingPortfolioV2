@@ -72,6 +72,11 @@
     import cssLogo from '../../assets/images/png/css.png'
     import htmlLogo from '../../assets/images/png/html.png'
 
+    import portfolioImg from '../../assets/images/png/portfolio.png'
+    import maxwellImg from '../../assets/images/jpg/maxwellMysteries2.jpg'
+    import actorImg from '../../assets/images/jpg/actorPortfolio1.jpg'
+
+
     export default {
         name: 'HomeView',
 
@@ -144,7 +149,7 @@
                 projects: [
                     {
                         title: 'Maxwell Mysteries',
-                        img: sfGif,
+                        img: maxwellImg,
                         text: 'Online puzzle game series following the cases of 1930s P.I. Larry Maxwell through the New York underworld. Over 500 games purchased and generated ~£6000 in profit. Built using React, React Router and CSS.',
                         buttons: [
                             {
@@ -159,7 +164,7 @@
                     },
                     {
                         title: "Actor's Portfolio",
-                        img: sfGif,
+                        img: actorImg,
                         text: "Isobelle Pippin is an actor who needed a portfolio website for her self promotion. After discussing with Isobelle her requirements I created this site, deisgned 'mobile first', and linked it to Netlify CMS and Identity so that Isobelle can edit her own content. Built using HTML, CSS and Javascript.",
                         buttons: [
                             {
@@ -173,8 +178,8 @@
                         ]
                     },
                     {
-                        title: 'This Portfolio',
-                        img: sfGif,
+                        title: 'This Code Portfolio',
+                        img: portfolioImg,
                         text: "This is the second iteration of my coding portfolio. Designed 'mobile first' and built using Vue, Vue-Router, Vuex and Vuetify.",
                         buttons: [
                             {
