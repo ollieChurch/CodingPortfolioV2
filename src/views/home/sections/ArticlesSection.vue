@@ -72,6 +72,7 @@
 
     .article-list {
         width: fit-content;
+        max-width: 600px;
         margin: 0 auto;
     }
 
