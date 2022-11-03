@@ -71,6 +71,7 @@
     import javascriptLogo from '../../assets/images/png/javascript.png'
     import cssLogo from '../../assets/images/png/css.png'
     import htmlLogo from '../../assets/images/png/html.png'
+    import typescriptLogo from '../../assets/images/png/typescript.png'
 
     import portfolioImg from '../../assets/images/png/portfolio.png'
     import maxwellImg from '../../assets/images/jpg/maxwellMysteries2.jpg'
@@ -113,6 +114,10 @@
                     {
                         alt: "MySQL logo",
                         src: mysqlLogo
+                    },
+                    {
+                        alt: "Typescript logo",
+                        src: typescriptLogo
                     },
                     {
                         alt: "Javascript logo",
