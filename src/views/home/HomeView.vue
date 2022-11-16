@@ -77,6 +77,7 @@
     import maxwellImg from '../../assets/images/jpg/maxwellMysteries2.jpg'
     import actorImg from '../../assets/images/jpg/actorPortfolio1.jpg'
     import directorImg from '../../assets/images/jpg/directorPortfolio.jpg'
+    import autoschedulerImg from '../../assets/images/jpg/autoscheduler.jpg'
 
 
     export default {
@@ -145,10 +146,10 @@
                                 name: 'Visit LinkedIn',
                                 linkTo: 'https://www.linkedin.com/in/olliechurch/'
                             },
-                            // {
-                            //     name: 'Download CV',
-                            //     linkTo: 'ollieChurchCV.pdf'
-                            // }
+                            {
+                                name: 'Download CV',
+                                linkTo: 'ollieChurchCV.pdf'
+                            }
                         ]
                     }
                 ],
@@ -195,6 +196,17 @@
                             {
                                 name: 'Take It For A Spin',
                                 linkTo: 'https://isobellepippin.co.uk'
+                            }
+                        ]
+                    },
+                    {
+                        title: "Autoscheduler",
+                        img: autoschedulerImg,
+                        text: 'Built as a purely personal project to develop my knowledge of C#, ASP.Net and Blazor components. This tool helps me schedule out my to-do list based on priority and how much time I have to get stuff done. It uses the basic Bootstrap features for the design and the logic uses C#',
+                        buttons: [
+                            {
+                                name: 'See The Code',
+                                linkTo: 'https://github.com/ollieChurch/Autoscheduler'
                             }
                         ]
                     },
