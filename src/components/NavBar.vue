@@ -55,12 +55,12 @@
                         linkTo: "https://linkedin.com/in/olliechurch/",
                         icon: "linkedin"
                     },
-                    // {
-                    //     name: "CV",
-                    //     linkTo: "ollieChurchCV.pdf",
-                    //     internalType: "download",
-                    //     icon: "clipboard-arrow-down-outline"
-                    // },
+                    {
+                        name: "CV",
+                        linkTo: "ollieChurchCV.pdf",
+                        internalType: "download",
+                        icon: "clipboard-arrow-down-outline"
+                    },
                     {
                         name: "Contact",
                         linkTo: "",
