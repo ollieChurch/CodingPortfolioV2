@@ -200,17 +200,6 @@
                         ]
                     },
                     {
-                        title: "Autoscheduler",
-                        img: autoschedulerImg,
-                        text: 'Built as a purely personal project to develop my knowledge of C#, ASP.Net and Blazor components. This tool helps me schedule out my to-do list based on priority and how much time I have to get stuff done. It uses the basic Bootstrap features for the design and the logic uses C#',
-                        buttons: [
-                            {
-                                name: 'See The Code',
-                                linkTo: 'https://github.com/ollieChurch/Autoscheduler'
-                            }
-                        ]
-                    },
-                    {
                         title: 'This Website',
                         img: portfolioImg,
                         text: "This is the second iteration of my coding portfolio. Designed 'mobile first' and built using Vue, Vue-Router, Vuex and Vuetify.",
