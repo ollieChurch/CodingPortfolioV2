@@ -77,8 +77,6 @@
     import maxwellImg from '../../assets/images/jpg/maxwellMysteries2.jpg'
     import actorImg from '../../assets/images/jpg/actorPortfolio1.jpg'
     import directorImg from '../../assets/images/jpg/directorPortfolio.jpg'
-    import autoschedulerImg from '../../assets/images/jpg/autoscheduler.jpg'
-
 
     export default {
         name: 'HomeView',
