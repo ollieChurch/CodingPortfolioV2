@@ -4,7 +4,7 @@
             <v-container>
                 <div class="mt-9 text-center">
                     <h1 class="text-h1 mb-n2">Hi I'm Ollie</h1>
-                    <h2 class="text-h3 mb-n2">Software Developer</h2>
+                    <h2 class="text-h3 mb-n2">Software Engineer</h2>
                 </div>
                 <v-img
                     contain
@@ -136,9 +136,9 @@
                 jobs: [
                     {
                         title: 'Salary Finance',
-                        subtitle: 'Junior Software Developer',
+                        subtitle: 'Software Engineer',
                         img: sfGif,
-                        text: "When it comes to managing money, there’s no one-size-fits-all approach. Salary Finance is here to make managing your money simple and help you improve your financial situation with responsible financial products and educational resources. Working with C#, .Net, Vue, Typescript, MySQL",
+                        text: "When it comes to managing money, there’s no one-size-fits-all approach. Salary Finance is here to make managing your money simple and help you improve your financial situation with responsible financial products and educational resources. Working with C#, .Net, Vue, Typescript, MySQL and AWS",
                         buttons: [
                             {
                                 name: 'Visit LinkedIn',
