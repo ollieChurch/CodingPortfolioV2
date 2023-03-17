@@ -144,10 +144,10 @@
                                 name: 'Visit LinkedIn',
                                 linkTo: 'https://www.linkedin.com/in/olliechurch/'
                             },
-                            // {
-                            //     name: 'Download CV',
-                            //     linkTo: 'ollieChurchCV.pdf'
-                            // }
+                            {
+                                name: 'Download CV',
+                                linkTo: 'ollieChurchCV.pdf'
+                            }
                         ]
                     }
                 ],
