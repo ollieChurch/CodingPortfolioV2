@@ -18,7 +18,7 @@
                 @click="handleClick(button.linkTo)"
                 :disabled="button.linkTo ? false : true"
             >
-                {{ button.linkTo ? button.name : "Oops! Check back later" }}
+                {{ button.name ? button.name : button.linkTo ? "Take A Look" : "Oops! Check back later" }}
             </v-btn>
         </v-card-actions>
     </v-card>
