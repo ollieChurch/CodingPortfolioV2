@@ -15,7 +15,7 @@ export default {
                 linkTo: 'https://olliechurch.notion.site/3-Rules-For-5-Star-Customer-Service-81d3f01b516241d6a037bb0cadb1d752'
             },
             {
-                name: 'A Day In The Life Of A Software Dev',
+                name: 'A Day In The Life Of A Junior Dev',
                 linkTo: 'https://olliechurch.notion.site/A-Day-In-The-Life-Of-A-Software-Dev-fbb8607d7417498fa8f11e80f98b3e0b'
             }
         ]
