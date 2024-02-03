@@ -177,7 +177,7 @@
 					{
 						title: 'Task Glitch',
 						img: glitchImg,
-						text: 'A productivity tool built with Vue & Bootstrap on the frontend while utilising Firebase in the backend. Fill up your backlog and allow Glitch to prioritise & schedule your tasks, ensuring you never miss another important deadline. Built to automate my own productivity process.',
+						text: 'A productivity tool made with Vue & Bootstrap on the frontend while utilising Firebase in the backend. Fill up your backlog and allow Glitch to prioritise & schedule your tasks, ensuring you never miss another important deadline. Built to automate my own productivity process.',
 						buttons: [
 							{
 								name: 'See The Code',
