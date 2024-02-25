@@ -32,17 +32,38 @@
 
 		<section-head>Current Role</section-head>
 		<section-border position="btm" />
-		<cards-collection :cards="jobs" class="hidden-md-and-up" />
-		<horizontal-card
-			class="mx-2 hidden-sm-and-down"
-			:cardTitle="jobs[0].title"
-			:cardSubtitle="jobs[0].subtitle"
-			:cardImg="jobs[0].img"
-			:cardText="jobs[0].text"
-			:buttons="jobs[0].buttons"
+		<cards-collection
+			:cards="jobs"
+			:isHorizontalCards="useHorizontalCards"
 		/>
 
 		<section-border />
+		<section-head>Recs</section-head>
+		<div class="bg-color-primary d-flex flex-column align-center">
+			<section-border position="btm" />
+
+			<div
+				v-for="(rec, index) in recommendations"
+				:key="`recommendation-${index}`"
+			>
+				<hr v-if="index > 0" class="section-content mt-8" />
+				<recommendation-card
+					:name="rec.name"
+					:jobTitle="rec.jobTitle"
+					:text="rec.text"
+				/>
+			</div>
+			<v-btn
+				large
+				color="accent"
+				class="primary--text mt-6 mb-10"
+				@click="handleClick('https://www.linkedin.com/in/olliechurch/')"
+			>
+				Read More On LinkedIn
+			</v-btn>
+			<section-border />
+		</div>
+
 		<section-head>Personal Projects</section-head>
 		<section-border position="btm" />
 		<cards-collection :cards="projects" />
@@ -58,7 +79,7 @@
 	import SectionBorder from '@/components/SectionBorder.vue'
 	import SiteFooter from '../../components/SiteFooter.vue'
 	import CardsCollection from '@/components/CardsCollection.vue'
-	import HorizontalCard from '@/components/HorizontalCard.vue'
+	import RecommendationCard from '@/components/RecommendationCard.vue'
 
 	import ArticlesSection from './sections/ArticlesSection.vue'
 	import ContactSection from './sections/ContactSection.vue'
@@ -87,8 +108,8 @@
 			ArticlesSection,
 			CardsCollection,
 			ContactSection,
-			HorizontalCard,
-			SectionBorder
+			SectionBorder,
+			RecommendationCard
 		},
 
 		data: function () {
@@ -141,6 +162,18 @@
 								linkTo: 'ollieChurchCV.pdf'
 							}
 						]
+					}
+				],
+				recommendations: [
+					{
+						name: 'Dima Horda',
+						jobTitle: 'Product Manager',
+						text: 'Throughout our time working together at Salary Finance, Ollie consistently demonstrated a remarkable ability to quickly grasp new concepts and take initiative in solving complex problems. His proactive approach played a pivotal role in enhancing the efficiency and effectiveness of our development team. I could always rely on Ollie to deliver high-quality work and meet deadlines without fail. Any team would be fortunate to have Ollie onboard.'
+					},
+					{
+						name: 'Charlotte Prior',
+						jobTitle: 'Operations Director - Facilities',
+						text: "I had the pleasure of working with Ollie whilst at GLive and was very lucky to have him as part of the team. He's reliable, diligent, proactive and takes initiative. I knew that Ollie could be trusted to run things smoothly with a focus on customer service and attention to detail. Ollie is friendly and approachable with a lovely manner. He has the ability to put people at ease whilst maintaining the ability to be assertive when the situation requires it."
 					}
 				],
 				projects: [
@@ -204,6 +237,15 @@
 						]
 					}
 				]
+			}
+		},
+
+		computed: {
+			useHorizontalCards() {
+				return !(
+					this.$vuetify.breakpoint.name == 'xs' ||
+					this.$vuetify.breakpoint.name == 'sm'
+				)
 			}
 		}
 	}
