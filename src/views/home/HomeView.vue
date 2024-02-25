@@ -57,7 +57,7 @@
 				large
 				color="accent"
 				class="primary--text mt-6 mb-10"
-				@click="handleClick('https://www.linkedin.com/in/olliechurch/')"
+				@click="openLink('https://www.linkedin.com/in/olliechurch/')"
 			>
 				Read More On LinkedIn
 			</v-btn>
@@ -246,6 +246,12 @@
 					this.$vuetify.breakpoint.name == 'xs' ||
 					this.$vuetify.breakpoint.name == 'sm'
 				)
+			}
+		},
+
+		methods: {
+			openLink(link) {
+				window.open(link, '_blank, norefferer')
 			}
 		}
 	}
