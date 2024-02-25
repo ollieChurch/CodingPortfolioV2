@@ -22,12 +22,12 @@
                     </v-list-item>
                 </v-list>
                 <v-btn
-                    x-large
+                    large
                     color="accent"
                     class="articles-btn primary--text mt-6 mb-10"
                     @click="handleClick($store.state.articles.homeLink)"
                 >
-                    Read More
+                    Read More On Notion
                 </v-btn>
             </v-container>
             <v-img contain max-width="100%" :src="rocketImg" class="rocket" />

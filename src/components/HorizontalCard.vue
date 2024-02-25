@@ -24,25 +24,18 @@
                         </v-btn>
                     </v-card-actions>
                 </div>
-                <v-img :aspect-ratio="2 / 1" max-width="47%" :src="cardImg" />
+                <v-img v-if="cardImg" :aspect-ratio="2 / 1" max-width="47%" :src="cardImg" />
             </v-card>
         </v-container>
     </div>
 </template>
 
 <script>
-    import sfGif from '../assets/images/gif/salaryFinance.gif'
-
     export default {
         props: {
-            cardTitle: {
-                type: String,
-                default: "Card Title"
-            },
+            cardTitle: String,
             cardSubtitle: String,
-            cardImg: {
-                default: sfGif
-            },
+            cardImg: String,
             cardText: String,
             buttons: Array
         },

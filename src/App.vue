@@ -41,4 +41,9 @@
     .v-card__text, .v-card__title {
         word-break: normal !important;  
     }
+
+	.section-content {
+		max-width: 700px;
+		margin: 0 auto;
+	}
 </style>

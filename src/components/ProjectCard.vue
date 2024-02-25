@@ -3,7 +3,7 @@
         <div>
             <v-card-title class="text-h4">{{ cardTitle }}</v-card-title>
             <v-card-subtitle class="text-h5">{{ cardSubtitle }}</v-card-subtitle>
-            <v-img :aspect-ratio="2 / 1" max-width="100%" :src="cardImg" />
+            <v-img v-if="cardImg" :aspect-ratio="2 / 1" max-width="100%" :src="cardImg" />
         </div>
         <v-card-text class="body-text-size">{{ cardText }}</v-card-text>
         <v-card-actions class="flex-column mt-2">  
@@ -25,18 +25,11 @@
 </template>
 
 <script>
-    import sfGif from '../assets/images/gif/salaryFinance.gif'
-
     export default {
         props: {
-            cardTitle: {
-                type: String,
-                default: "Card Title"
-            },
+            cardTitle: String,
             cardSubtitle: String,
-            cardImg: {
-                default: sfGif
-            },
+            cardImg: String,
             cardText: String,
             buttons: Array
         },
