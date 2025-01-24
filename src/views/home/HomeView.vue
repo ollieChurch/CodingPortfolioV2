@@ -85,7 +85,7 @@
 	import ContactSection from './sections/ContactSection.vue'
 
 	import greetingImg from '../../assets/images/png/programing.png'
-	import sfGif from '../../assets/images/gif/salaryFinance.gif'
+	import currentJobLogo from '../../assets/images/jpg/ontime_payments_logo.jpeg'
 	import vueLogo from '../../assets/images/png/vue.png'
 	import csharpLogo from '../../assets/images/png/csharp.png'
 	import dotnetLogo from '../../assets/images/png/dotnet.png'
@@ -145,22 +145,21 @@
 						src: htmlLogo
 					}
 				],
-				sfGif: sfGif,
 				jobs: [
 					{
-						title: 'Salary Finance',
-						subtitle: 'Software Engineer',
-						img: sfGif,
-						text: 'When it comes to managing money, there’s no one-size-fits-all approach. Salary Finance is here to make managing your money simple and help you improve your financial situation with responsible financial products and educational resources. Working with C#, .Net, Vue, Typescript, MySQL and AWS',
+						title: 'Ontime Payments',
+						subtitle: 'Lead Developer',
+						img: currentJobLogo,
+						text: 'We’re here to help you get cheaper prices, better products and a healthier credit score. With Ontime we’re taking pay-by-salary mainstream. We’re making it available to the millions of people who need it for all their regular bills. Our tech stack is mainly C#, Blazor and AWS.',
 						buttons: [
 							{
 								name: 'Visit LinkedIn',
 								linkTo: 'https://www.linkedin.com/in/olliechurch/'
 							},
-							{
-								name: 'Download CV',
-								linkTo: 'ollieChurchCV.pdf'
-							}
+							// {
+							// 	name: 'Download CV',
+							// 	linkTo: 'ollieChurchCV.pdf'
+							// }
 						]
 					}
 				],
